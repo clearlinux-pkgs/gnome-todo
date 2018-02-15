@@ -1,0 +1,418 @@
+===============
+Version 3.27.90
+===============
+
+Project:
+	* Add a 'org-gnome-Todo' style class (Alexis Diavatis)
+	* Remove reduntant 'New List' menu entry from appmenu (Shashwat)
+	* Fix untranslated Python plugins
+	* Add proper logging capabilities
+	* Flatpak master now shows trace messages
+	* Fix an important performance issue on startup
+	* Save edited tasks more aggressively
+	* Minor UI polishing
+	* Many translation updates
+
+Todoist:
+	* Major rework of the Todoist data provider
+	* Errors are identified and treated more accurately now
+	* Tasks are now properly sorted
+	* Subtasks are correctly identified
+
+EDS:
+	* Major rework of the codebase
+	* Correctly detect completed tasks (fixes Google Tasks integration)
+
+Todo.txt:
+	* Initial rework of the Todo.txt data provider
+	* Temporary loss of subtasks
+
+==============
+Version 3.27.2
+==============
+
+Project:
+	* The task list view was redesigned, and now is much more cohesive
+	* GNOME To Do was moved to Gitlab!
+	* Many contribution resources were documented. The contribution workflow
+	  is now much easier and better documented.
+	* Build with libical 3.0 (Milan Chra)
+	* Many translation updates.
+
+==============
+Version 3.26.0
+==============
+
+Project:
+	* Translation updates
+
+===============
+Version 3.25.90
+===============
+
+Project:
+	* Move to Meson build system (Iñigo Martínez)
+	* Fix Flatpak build (Florian Müllner)
+	* Introduce Todoist integration (Rohit Kaushik)
+
+Translations:
+	* Belarussian (Yuras Shumovich)
+	* Catalan (Jordi Mas)
+	* Czech (Marek Cernocky)
+	* Friulian (Fabio Tomat)
+	* Galician (Fran Dieguez)
+	* German (Mario Blättermann)
+	* Hungarian (Balázs Meskó)
+	* Indonesian (Kukuh Syafaat)
+	* Kazakh (Baurzhan Muftakhidinov)
+	* Lithuanian (Aurimas Černius)
+	* Nepali (Pawan Chitrakar)
+	* Turkish (Emin Tufan Çetin)
+	* Slovak (Dušan Kazik)
+	* Slovenian (Matej Urbančič)
+	* Spanish (Daniel Mustieles)
+	* Vietnamese (Trần Ngọc Quân)
+
+===============
+Version 3.25.3
+===============
+
+Project:
+	* Improve Scheduled panel's date headers
+	* Allow pass an emit-error-message callback (Kevin Lopez)
+	* Allow control-click for selection mode (Linus Probert)
+	* Many improvements to Todo.txt plugin (Rohit Kaushik)
+	* Add Meson build system files (Iñigo Martínez)
+	* Plug memory leaks (Mohammed Sadiq)
+	* Add skeleton for Todoist plugin (Rohit Kaushik)
+
+Translations:
+	* Belarussian (Yuras Shumovich)
+	* Brazilian Portuguese (Rafael Fontenelle)
+	* Friulian (Fabio Tomat)
+	* German (Christian Stadelmann, Mario Blättermann)
+	* Hungarian (Balázs Meskó)
+	* Indonesian (Kukuh Syafaat)
+	* Italian (Gianvito Cavasoli)
+	* Kazakh (Baurzhan Muftakhidinov)
+	* Lithuanian (Aurimas Černius)
+	* Norwegian bokmål (Kjartan Maraas)
+	* Polish (Piotr Drąg)
+	* Slovak (Dušan Kazik)
+	* Spanish (Daniel Mustieles)
+	* Swedish (Anders Jonsson)
+	* Turkish (Emin Tufan Çetin)
+
+===============
+Version 3.25.1
+===============
+
+No changes
+
+===============
+Version 3.24.0
+===============
+
+Project:
+        * Add a new plugin to run To Do in background
+        * A new experimental Todo.txt plugin was created, but disabled by default (Rohit Kaushik)
+        * Properly update panels when day changes (Aeden McClain, Georges Basile Stavracas Neto)
+        * Fix crash on various classes (Victor Toso)
+        * Add 'todo' keyword to the desktop file (Jehan)
+        * Fix tasklist thumbnails on HiDPI monitors (Kevin Lopez)
+        * Drop Intltool usage
+        * Add accelerators to Edit pane (djb)
+        * Improve CSS loading (Iñigo Martínez)
+        * Fix drag n' drop (Jens Sauer)
+        * Fix many memory leaks (Mohammed Sadiq, Victor Toso)
+        * Add tasklist selector in New Task row on tasklist-less panels
+
+Translations:
+        * Basque (Inaki Larranaga Murgoitio)
+        * Brazilian Portuguese (Enrico Nicoletto, Rafael Fontenelle)
+        * Catalan (Jordi Mas)
+        * Chinese (simplified) (Mandy Wang)
+        * Chinese (Taiwan) (Chao-Hsiung Liao)
+        * Danish (Ask Hjorth Larsen, Alan Mortensen)
+        * Dutch (Hannie Dumoleyn)
+        * Czech (Marek Černocký)
+        * Finnish (Jiri Grönroos)
+        * French (Charles Monzat, Claude Paroz)
+        * Friulian (Fabio Tomat)
+        * Galician (Fran Dieguez)
+        * German (Mario Blättermann, Christian Kirbach, Bernd Homuth)
+        * Hungarian (Baláz Meskó, Gábor Kelemen)
+        * Indonesian (Kukuh Syafaat)
+        * Italian (Gianvito Cavasoli)
+        * Japanese (sujiniku)
+        * Kazakh (Baurzhan Muftakhidinov)
+        * Korean (Seong-ho Cho)
+        * Latvian (Rūdolfs Mazurs)
+        * Lithuanian (Aurimas Černius)
+        * Norwegian bokmål (Kjartan Maraas)
+        * Polish (Piotr Drąg)
+        * Russian (Yuri Myasoedov, Stas Solovey)
+        * Serbian (Мирослав Николић, Марко М. Костић)
+        * Slovak (Dušan Kazik)
+        * Spanish (Daniel Mustieles)
+        * Swedish (Anders Jonsson)
+        * Turkish (Çağatay Yiğit Şahin)
+        * Ukrainian (Daniel Korostil)
+
+===============
+Version 3.22.0
+===============
+
+Project:
+        * GNOME To Do now supports subtasks
+        * Plug various memory leaks (Victor Toso)
+        * Improved task editor panel (Rohit Kaushik)
+        * Avoid crash on labels (Jason Crain)
+        * Various cleanups (djb)
+        * Add developer documentation
+        * Make the stardard panels as plugins
+        * Add plugin to switch between dark/light theme variants
+        * General improvements on dark variant
+
+Translations:
+        * Basque (Inaki Larranaga Murgoitio)
+        * Brazilian Portuguese (Gustavo Marques)
+        * British English (Bruce Cowan)
+        * Catalan (Jordi Mas)
+        * Czech (Marek Černocký)
+        * Chinese (Jeff Bai)
+        * Chinese (Taiwan) (Cheng-Chia Tseng)
+        * Danish (Ask Hjorth Larsen)
+        * Dutch (Hannie Dumoleyn)
+        * Galician (Fran Dieguez)
+        * German (Flo H, Mario Blättermann)
+        * Greek (Tom Tryfonidis)
+        * Finnish (Jiri Grönroos)
+        * French (Alexandre Franke)
+        * Friulian (Fabio Tomat)
+        * Hebrew (Yosef Or Boczko)
+        * Hungarian (Balázs Úr)
+        * Icelandic (Sveinn í Felli)
+        * Indonesian (Andika Triwidada)
+        * Italian (Gianvito Cavasoli)
+        * Kazakh (Baurzhan Muftakhidinov)
+        * Korean (Seong-ho Cho)
+        * Latvian (Rūdolfs Mazurs)
+        * Lithuanian (Aurimas Černius)
+        * Occitan (Cédric Valmary)
+        * Persian (Arash Mousavi)
+        * Polish (Piotr Drąg)
+        * Portuguese (Tiago Santos)
+        * Serbian (Мирослав Николић)
+        * Slovak (Dušan Kazik)
+        * Slovenian (Matej Urbančič)
+        * Swedish (Anders Jonsson)
+        * Spanish (Daniel Mustieles)
+        * Turkish (Muhammet Kara)
+        * Ukranian (Daniel Korostil)
+        * Vietnamese (Trần Ngọc Quân)
+
+===============
+Version 3.19.92
+===============
+
+Translations:
+        * Catalan (Jordi Mas)
+        * Dutch (hanniedu)
+        * Finnish (Jiri Grönroos)
+        * Hungarian (Balázs Úr)
+        * Italian (Gianvito Cavasoli)
+        * Kazakh (Baurzhan Muftakhidinov)
+        * Korean (Seong-ho Cho)
+        * Lithuanian (Aurimas Černius)
+        * Portuguese (Duarte Loreto)
+        * Serbian (Мирослав Николић)
+        * Serbian Latin (Мирослав Николић)
+        * Slovenian (Matej Urbančič)
+        * Ukranian (Daniel Korostil)
+
+==============
+Version 3.19.91
+==============
+
+Project:
+        * Consistently use To Do naming (Daniel Aleksander)
+        * Also consider creation date when sorting tasks (Isaque Galdino)
+        * Make EDS an embedded plugin (Saiful B. Khan)
+
+Translations:
+        * Brazilian Portuguese (Artur de Aquino)
+        * Czech (Marek Černocký)
+        * Hebrew (Yosef Or Boczko)
+        * Galician (Fran Dieguez)
+        * German (Bernd Homuth)
+        * Greek (Efstathios  Iosifidis)
+        * Hungarian (Gábor Kelemen, Balázs Meskó )
+        * Latvian (Rūdolfs Mazurs)
+        * Norwegan bokmål (Kjartan Maraas)
+        * Occitan (Cédric Valmary)
+        * Polish (Piotr Drag)
+        * Serbian (Мирослав Николић)
+        * Spanish (Daniel Mustieles)
+
+==============
+Version 3.19.90
+==============
+
+Project:
+        * Improved documentation for the plugin API
+        * Ignore casefolding when sorting tasks & lists (Isaque Galdino)
+        * Fix Scheduled headers and translations
+        * Improved Scheduled panel (Isaque Galdino)
+
+Translations:
+        * Brazilian Portuguese (Rafael Fontanelle)
+        * Chinese Taiwan (Chao-Hsiung Liao)
+        * Friulian (Fabio Tomat)
+        * Hungarian (Gábor Kelemen, Balázs Meskó )
+        * Kazakh (Baurzhan Muftakhidinov)
+        * Latvian (Rūdolfs Mazurs)
+        * Polish (Piotr Drag)
+        * Slovak (Dušan Kazik)
+        * Spanish (Daniel Mustieles)
+
+==============
+Version 3.19.5
+==============
+
+Project:
+        * Vastly improve the plugin system (Patrick Griffis)
+        * Add kudos information in AppData (Richard Hughes)
+        * Adapt icon names to use the application id (Cosimo Cecchi)
+        * Many code cleanups and fixes
+
+Translations:
+        * Friulian (Fabio Tomat)
+        * German (Matio Blättermann)
+        * Hungarian (Baláz Meskó)
+        * Slovak (Dušan Kazik)
+
+==============
+Version 3.19.4
+==============
+
+Project:
+        * Add a plugin subsystem
+        * Add list-based tasklist selector
+        * Port to use CSS names
+
+==============
+Version 3.18.0
+==============
+
+Translations:
+        * Brazilian Portuguese (Georges Basile Stavracas Neto, Rafael Fontenelle)
+        * Chinese (Taiwan) (Cheng-Chia Tseng)
+        * Czech (Marek Černocký)
+        * Danish (Ask Hjorth Larsen)
+        * Indonesian (Ade Malsasa Akbar)
+        * Korean (Seong-ho Cho)
+        * Persian (Arash Mousavi)
+        * Norwegan bokmål (Kjartan Maraas)
+        * Swedish (Anders Jonsson)
+
+================
+Version 3.17.92
+================
+
+Translations:
+        * Catalan (Jordi Mas)
+        * Finnish (Jiri Grönroos)
+        * French (Alexandre Franke)
+        * Galician (Fran Dieguez)
+        * German (Christian Kirbach)
+        * Greek (Tom Tryfonidis)
+        * Hungarian (Balázs Úr)
+        * Kazakh (Baurzhan Muftakhidinov)
+        * Korean (Seong-ho Cho)
+        * Lithianian (Aurimas Černius)
+        * Norwegian bokmål (Kjartan Maraas)
+        * Polish (Piotr Drąg)
+        * Portuguese (Pedro Albuquerque)
+        * Slovak (Dušan Kazik)
+        * Spanish (Daniel Mustieles)
+        * Turkish (Muhammet Kara)
+
+================
+Version 3.17.91
+================
+
+Project:
+        * Add selection mode, which allows renaming and removing lists
+        * Add a "Clear completed tasks..." item in gear menu
+        * Update build system (Emmanuele Bassi)
+        * Lots of bugfixes and cleanups
+
+Translations:
+        * Catalan (Jordi Mas)
+        * Esperanto (Kristjan Schmidt)
+        * Galician (Fran Dieguez)
+        * Greek (Dimitris Spingos)
+        * Hebrew (Yosef Or Boczko)
+        * Hungarian (Balázs Meskó)
+        * Lithuanian (Aurimas Černius)
+        * Norwegian bokmal (Kjartan Maraas)
+        * Portuguese (Pedro Albuquerque)
+        * Polish (Pedro Albuquerque)
+        * Punjabi (A S Alam)
+        * Spanish (Daniel Mustieles)
+        * Slovak (Dušan Kazik)
+        * Turkish (Muhammet Kara)
+
+================
+Version 3.17.4
+================
+
+Project:
+        * Fix wrong name throughout the application
+        * Better represent visually task priorities by changing the row's color
+        * Make edit panel resizable
+        * Add "Today" and "Scheduled" custom lists
+        * Improve notification system
+        * Initial support for search over list names
+
+Translations:
+        * Greek (Dimitris Spingos)
+        * Hebrew (Yosef Or Boczko)
+        * Polish (Piotr Drag)
+        * Spanish (Daniel Mustieles)
+        * Slovak (Dušan Kazik)
+        * Slovenian (Matej Urbančič)
+
+================
+Version 3.17.3.1
+================
+
+Project:
+        * Show 'Today' and 'Scheduled' task lists
+        * Use colors to represent priorities
+        * Fixed some very annoying bugs
+
+Translations:
+        * Polish (Piotr Drag)
+        * Slovak (Dušan Kazik)
+
+==============
+Version 3.17.3
+==============
+
+Project:
+        * Many improvements on the Evolution-Data-Server backend
+        * Ability to create new tasklists
+        * Much better thumbnails for tasklists
+        * Initial setup dialog
+        * Task fields update is now possible
+
+==============
+Version 3.17.2
+==============
+
+Project:
+        * Initial release
+        * Simple and unfinished task management
+        * Evolution-Data-Server as data backend
