@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 3.28.0
-Release  : 3
+Release  : 4
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.0.tar.xz
 Summary  : No detailed summary available
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522185717
+export SOURCE_DATE_EPOCH=1522187458
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain  builddir
 ninja -v -C builddir
 
