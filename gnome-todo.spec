@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 3.28.0
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.0.tar.xz
 Summary  : No detailed summary available
