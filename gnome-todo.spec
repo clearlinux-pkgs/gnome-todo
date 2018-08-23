@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 3.28.1
-Release  : 9
+Release  : 10
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Summary  : No detailed summary available
@@ -12,10 +12,10 @@ Group    : Development/Tools
 License  : GPL-3.0
 Requires: gnome-todo-bin
 Requires: gnome-todo-data
+Requires: gnome-todo-license
 Requires: gnome-todo-locales
+BuildRequires : buildreq-meson
 BuildRequires : glibc-bin
-BuildRequires : meson
-BuildRequires : ninja
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(goa-1.0)
 BuildRequires : pkgconfig(gtk+-3.0)
@@ -23,7 +23,6 @@ BuildRequires : pkgconfig(json-glib-1.0)
 BuildRequires : pkgconfig(libecal-1.2)
 BuildRequires : pkgconfig(libpeas-1.0)
 BuildRequires : pkgconfig(rest-0.7)
-BuildRequires : python3
 
 %description
 # GNOME To Do
@@ -35,6 +34,7 @@ GNOME desktop environment.
 Summary: bin components for the gnome-todo package.
 Group: Binaries
 Requires: gnome-todo-data
+Requires: gnome-todo-license
 
 %description bin
 bin components for the gnome-todo package.
@@ -59,6 +59,14 @@ Provides: gnome-todo-devel
 dev components for the gnome-todo package.
 
 
+%package license
+Summary: license components for the gnome-todo package.
+Group: Default
+
+%description license
+license components for the gnome-todo package.
+
+
 %package locales
 Summary: locales components for the gnome-todo package.
 Group: Default
@@ -75,11 +83,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523376719
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain  builddir
+export SOURCE_DATE_EPOCH=1535062852
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
 ninja -v -C builddir
 
 %install
+mkdir -p %{buildroot}/usr/share/doc/gnome-todo
+cp COPYING %{buildroot}/usr/share/doc/gnome-todo/COPYING
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gnome-todo
 
@@ -87,10 +97,8 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %defattr(-,root,root,-)
 /usr/lib64/gnome-todo/plugins/score/score.plugin
 /usr/lib64/gnome-todo/plugins/score/score/__init__.py
-/usr/lib64/gnome-todo/plugins/score/score/__pycache__/__init__.cpython-36.pyc
 /usr/lib64/gnome-todo/plugins/unscheduled-panel/unscheduled-panel.plugin
 /usr/lib64/gnome-todo/plugins/unscheduled-panel/unscheduled-panel/__init__.py
-/usr/lib64/gnome-todo/plugins/unscheduled-panel/unscheduled-panel/__pycache__/__init__.cpython-36.pyc
 
 %files bin
 %defattr(-,root,root,-)
@@ -134,6 +142,10 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gnome-todo/gtd-utils.h
 /usr/include/gnome-todo/gtd-window.h
 /usr/lib64/pkgconfig/gnome-todo.pc
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/gnome-todo/COPYING
 
 %files locales -f gnome-todo.lang
 %defattr(-,root,root,-)
