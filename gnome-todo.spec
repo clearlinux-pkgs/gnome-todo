@@ -4,16 +4,17 @@
 #
 Name     : gnome-todo
 Version  : 3.28.1
-Release  : 12
+Release  : 13
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
-Summary  : No detailed summary available
+Summary  : Task manager for GNOME
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: gnome-todo-bin
-Requires: gnome-todo-data
-Requires: gnome-todo-license
-Requires: gnome-todo-locales
+Requires: gnome-todo-bin = %{version}-%{release}
+Requires: gnome-todo-data = %{version}-%{release}
+Requires: gnome-todo-license = %{version}-%{release}
+Requires: gnome-todo-locales = %{version}-%{release}
+BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
 BuildRequires : glibc-bin
 BuildRequires : pkgconfig(glib-2.0)
@@ -23,6 +24,7 @@ BuildRequires : pkgconfig(json-glib-1.0)
 BuildRequires : pkgconfig(libecal-1.2)
 BuildRequires : pkgconfig(libpeas-1.0)
 BuildRequires : pkgconfig(rest-0.7)
+Patch1: build.patch
 
 %description
 # GNOME To Do
@@ -33,8 +35,8 @@ GNOME desktop environment.
 %package bin
 Summary: bin components for the gnome-todo package.
 Group: Binaries
-Requires: gnome-todo-data
-Requires: gnome-todo-license
+Requires: gnome-todo-data = %{version}-%{release}
+Requires: gnome-todo-license = %{version}-%{release}
 
 %description bin
 bin components for the gnome-todo package.
@@ -51,9 +53,10 @@ data components for the gnome-todo package.
 %package dev
 Summary: dev components for the gnome-todo package.
 Group: Development
-Requires: gnome-todo-bin
-Requires: gnome-todo-data
-Provides: gnome-todo-devel
+Requires: gnome-todo-bin = %{version}-%{release}
+Requires: gnome-todo-data = %{version}-%{release}
+Provides: gnome-todo-devel = %{version}-%{release}
+Requires: gnome-todo = %{version}-%{release}
 
 %description dev
 dev components for the gnome-todo package.
@@ -77,19 +80,21 @@ locales components for the gnome-todo package.
 
 %prep
 %setup -q -n gnome-todo-3.28.1
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535062852
+export SOURCE_DATE_EPOCH=1552315444
+export LDFLAGS="${LDFLAGS} -fno-lto"
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
 ninja -v -C builddir
 
 %install
-mkdir -p %{buildroot}/usr/share/doc/gnome-todo
-cp COPYING %{buildroot}/usr/share/doc/gnome-todo/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/gnome-todo
+cp COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/COPYING
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gnome-todo
 
@@ -144,8 +149,8 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib64/pkgconfig/gnome-todo.pc
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/gnome-todo/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/gnome-todo/COPYING
 
 %files locales -f gnome-todo.lang
 %defattr(-,root,root,-)
