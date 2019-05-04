@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 3.28.1
-Release  : 13
+Release  : 14
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Summary  : Task manager for GNOME
@@ -87,8 +87,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552315444
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1556991321
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
 ninja -v -C builddir
 
