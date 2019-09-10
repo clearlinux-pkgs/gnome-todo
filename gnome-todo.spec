@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 3.28.1
-Release  : 15
+Release  : 17
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Summary  : Task manager for GNOME
@@ -17,14 +17,16 @@ Requires: gnome-todo-locales = %{version}-%{release}
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
 BuildRequires : glibc-bin
-BuildRequires : pkgconfig(glib-2.0)
+BuildRequires : gnome-online-accounts-dev
+BuildRequires : json-glib-dev
+BuildRequires : libpeas-dev
 BuildRequires : pkgconfig(goa-1.0)
-BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(json-glib-1.0)
-BuildRequires : pkgconfig(libecal-1.2)
+BuildRequires : pkgconfig(libecal-2.0)
 BuildRequires : pkgconfig(libpeas-1.0)
 BuildRequires : pkgconfig(rest-0.7)
-Patch1: build.patch
+BuildRequires : rest-dev
+Patch1: 0001-eds-Port-to-libecal-2.0.patch
 
 %description
 # GNOME To Do
@@ -86,8 +88,9 @@ locales components for the gnome-todo package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557006953
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1568154436
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -95,7 +98,7 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
 ninja -v -C builddir
 
 %install
