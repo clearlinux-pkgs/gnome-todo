@@ -4,10 +4,10 @@
 #
 Name     : gnome-todo
 Version  : 3.28.1
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz
-Summary  : Task manager for GNOME
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: gnome-todo-bin = %{version}-%{release}
@@ -82,6 +82,7 @@ locales components for the gnome-todo package.
 
 %prep
 %setup -q -n gnome-todo-3.28.1
+cd %{_builddir}/gnome-todo-3.28.1
 %patch1 -p1
 
 %build
@@ -89,21 +90,21 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568154436
+export SOURCE_DATE_EPOCH=1586231708
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
 ninja -v -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gnome-todo
-cp COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/COPYING
+cp %{_builddir}/gnome-todo-3.28.1/COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/338650eb7a42dd9bc1f1c6961420f2633b24932d
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gnome-todo
 
@@ -159,7 +160,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/gnome-todo/COPYING
+/usr/share/package-licenses/gnome-todo/338650eb7a42dd9bc1f1c6961420f2633b24932d
 
 %files locales -f gnome-todo.lang
 %defattr(-,root,root,-)
