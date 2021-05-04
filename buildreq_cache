@@ -1,10 +1,9 @@
-3.28.1
+40.0
+Vulkan-Headers-dev
 gnome-online-accounts-dev
-json-glib-dev
 libpeas-dev
 pkgconfig(goa-1.0)
-pkgconfig(json-glib-1.0)
+pkgconfig(libadwaita-1)
 pkgconfig(libecal-2.0)
 pkgconfig(libpeas-1.0)
-pkgconfig(rest-0.7)
-rest-dev
+pkgconfig(libportal)

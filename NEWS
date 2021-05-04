@@ -1,9 +1,18 @@
 ==============
-Version 3.28.1
+Version 40
+==============
+
+* Improvements to the sidebar-based layout, including a single headerbar
+* Port to GTK4
+* Asynchronous providers
+* Many translation updates
+
+==============
+Version 3.91.1
 ==============
 
 Project:
-	* Fix Scheduled panel not updating its task list
+	* Redesign the main user interface by introducing a sidebar-based layout
 	* Many translation updates
 
 ==============
