@@ -1,10 +1,22 @@
-option('documentation', type: 'boolean', value: false, description: 'Use gtk-doc to build documentation')
-option('introspection', type: 'boolean', value: true, description: 'Enable GObject Introspection (depends on GObject)')
-option('tracing', type: 'boolean', value: false, description: 'Enable application tracing')
-option('profile', type: 'combo', choices: ['default', 'development'], value: 'default', description: 'Build profiles')
+# Performance and debugging related options
+option('profiling', type: 'boolean', value: false)
 
+option('introspection', type: 'feature', value: 'auto')
+option('vapi', type: 'boolean', value: true)
 
-# Plugins
-option('todo_txt_plugin', type: 'boolean', value: false, description: 'Enable Todo.Txt plugin')
-option('todoist_plugin', type: 'boolean', value: false, description: 'Enable Todoist plugin')
-option('unscheduled_panel_plugin', type: 'boolean', value: true, description: 'Enable Unscheduled Tasks Panel plugin')
+# Subproject
+option('package_subdir', type: 'string',
+  description: 'Subdirectory to append to all installed files, for use as subproject'
+)
+
+option('gtk_doc',
+       type: 'boolean', value: false,
+       description: 'Whether to generate the API reference for libadwaita')
+
+option('tests',
+       type: 'boolean', value: true,
+       description: 'Whether to compile unit tests')
+
+option('examples',
+       type: 'boolean', value: true,
+       description: 'Build and install the examples and demo applications')

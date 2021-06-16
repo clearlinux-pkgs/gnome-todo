@@ -1,4 +1,4 @@
-40.0
+40.1
 Vulkan-Headers-dev
 gnome-online-accounts-dev
 libpeas-dev
@@ -7,3 +7,4 @@ pkgconfig(libadwaita-1)
 pkgconfig(libecal-2.0)
 pkgconfig(libpeas-1.0)
 pkgconfig(libportal)
+sassc
