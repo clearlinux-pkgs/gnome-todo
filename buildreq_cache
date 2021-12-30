@@ -1,9 +1,0 @@
-41.0
-gnome-online-accounts-dev
-libpeas-dev
-pkgconfig(goa-1.0)
-pkgconfig(libadwaita-1)
-pkgconfig(libecal-2.0)
-pkgconfig(libpeas-1.0)
-pkgconfig(libportal)
-sassc
