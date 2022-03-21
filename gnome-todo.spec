@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 41.0
-Release  : 25
+Release  : 26
 URL      : https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz
 Summary  : No detailed summary available
@@ -23,8 +23,9 @@ BuildRequires : pkgconfig(goa-1.0)
 BuildRequires : pkgconfig(libadwaita-1)
 BuildRequires : pkgconfig(libecal-2.0)
 BuildRequires : pkgconfig(libpeas-1.0)
-BuildRequires : pkgconfig(libportal)
+BuildRequires : pkgconfig(libportal-gtk4)
 BuildRequires : sassc
+Patch1: 0001-Fix-build-with-libportal-gtk4.patch
 
 %description
 Summary
@@ -91,13 +92,14 @@ locales components for the gnome-todo package.
 %prep
 %setup -q -n gnome-todo-41.0
 cd %{_builddir}/gnome-todo-41.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1632417492
+export SOURCE_DATE_EPOCH=1647886973
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -114,7 +116,7 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-meson test -C builddir || :
+meson test -C builddir --print-errorlogs || :
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gnome-todo

@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Mon, 21 Mar 2022 11:14:38 -0700
+Subject: [PATCH] Fix build with libportal-gtk4
+
+https://gitlab.gnome.org/GNOME/gnome-todo/-/issues/434
+
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+---
+ src/plugins/background/gtd-plugin-background.c | 2 +-
+ src/plugins/background/meson.build             | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/background/gtd-plugin-background.c b/src/plugins/background/gtd-plugin-background.c
+index 0134015..dadf332 100644
+--- a/src/plugins/background/gtd-plugin-background.c
++++ b/src/plugins/background/gtd-plugin-background.c
+@@ -28,7 +28,7 @@
+ #include <gtk/gtk.h>
+ 
+ #include <libportal/portal.h>
+-#include <libportal/portal-gtk4.h>
++#include <libportal-gtk4/portal-gtk4.h>
+ 
+ #define AUTOSTART_NOTIFICATION_ID      "Gtd::BackgroundPlugin::autostart_notification"
+ #define AUTOSTART_NOTIFICATION_TIMEOUT 3  /* seconds */
+diff --git a/src/plugins/background/meson.build b/src/plugins/background/meson.build
+index a671a4f..59d3635 100644
+--- a/src/plugins/background/meson.build
++++ b/src/plugins/background/meson.build
+@@ -1,7 +1,7 @@
+ plugins_ldflags += ['-Wl,--undefined=gtd_plugin_background_register_types']
+ 
+ plugins_deps += [
+-  dependency('libportal'),
++  dependency('libportal-gtk4'),
+ ]
+ 
+ plugins_sources += files(
