@@ -4,7 +4,7 @@
 #
 Name     : gnome-todo
 Version  : 41.0
-Release  : 32
+Release  : 33
 URL      : https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz
 Summary  : No detailed summary available
@@ -99,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647886973
+export SOURCE_DATE_EPOCH=1664150966
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -120,8 +120,8 @@ meson test -C builddir --print-errorlogs || :
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gnome-todo
-cp %{_builddir}/gnome-todo-41.0/COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/338650eb7a42dd9bc1f1c6961420f2633b24932d
-cp %{_builddir}/gnome-todo-41.0/subprojects/libadwaita/COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/gnome-todo-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/338650eb7a42dd9bc1f1c6961420f2633b24932d || :
+cp %{_builddir}/gnome-todo-%{version}/subprojects/libadwaita/COPYING %{buildroot}/usr/share/package-licenses/gnome-todo/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gnome-todo
 
