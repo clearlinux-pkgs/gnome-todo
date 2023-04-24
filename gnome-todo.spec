@@ -5,7 +5,7 @@
 #
 Name     : gnome-todo
 Version  : 41.0
-Release  : 40
+Release  : 41
 URL      : https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz
 Summary  : No detailed summary available
